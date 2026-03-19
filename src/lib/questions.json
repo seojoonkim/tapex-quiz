@@ -1,0 +1,804 @@
+{
+  "questions": [
+    {
+      "id": "DEV-001",
+      "domain": "development",
+      "difficulty": "easy",
+      "task": "Python에서 두 수를 입력받아 최대공약수(GCD)를 반환하는 함수를 작성해달라는 프롬프트를 작성하세요.",
+      "context": "당신은 AI에게 Python 함수 작성을 요청하려 합니다. 유클리드 알고리즘을 사용한 GCD 함수가 필요합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "language_specified",
+            "desc": "Python이 프롬프트에 명시되어 있는가",
+            "points": 25,
+            "keywords": ["python", "파이썬"]
+          },
+          {
+            "key": "function_purpose",
+            "desc": "최대공약수 또는 GCD를 구하는 함수임이 명시되어 있는가",
+            "points": 35,
+            "keywords": ["최대공약수", "gcd", "greatest common divisor"]
+          },
+          {
+            "key": "algorithm_hint",
+            "desc": "유클리드 알고리즘 사용이 언급되어 있는가",
+            "points": 20,
+            "keywords": ["유클리드", "euclidean", "euclidea"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (20자 이상)",
+            "points": 20,
+            "min_length": 20
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "Python으로 두 정수를 입력받아 유클리드 알고리즘을 사용해 최대공약수(GCD)를 반환하는 함수를 작성해줘.",
+      "sample_bad_prompt": "GCD 함수 만들어줘.",
+      "explanation": "좋은 프롬프트는 사용 언어(Python), 알고리즘(유클리드), 함수의 입출력(두 정수 → GCD)을 명확히 명시해야 합니다."
+    },
+    {
+      "id": "DEV-002",
+      "domain": "development",
+      "difficulty": "medium",
+      "task": "아래 Python 코드에서 버그를 찾아 수정해달라는 프롬프트를 작성하세요.\n\n```python\ndef calculate_average(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total / len(numbers)\n```\n\n(힌트: 빈 리스트 입력 시 ZeroDivisionError 발생)",
+      "context": "당신은 AI에게 코드 버그 수정을 요청하려 합니다. 빈 리스트 처리 로직이 누락된 코드입니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "code_included",
+            "desc": "프롬프트에 버그가 있는 코드 스니펫이 포함되어 있는가",
+            "points": 30,
+            "keywords": ["calculate_average", "def ", "total", "numbers"]
+          },
+          {
+            "key": "bug_identified",
+            "desc": "ZeroDivisionError 또는 빈 리스트 문제가 언급되어 있는가",
+            "points": 35,
+            "keywords": ["zerodivision", "zero division", "빈 리스트", "empty list", "나누기", "division by zero"]
+          },
+          {
+            "key": "fix_requested",
+            "desc": "수정 또는 수리를 명시적으로 요청했는가",
+            "points": 20,
+            "keywords": ["수정", "고쳐", "고쳐줘", "fix", "수리", "버그"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (30자 이상)",
+            "points": 15,
+            "min_length": 30
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "아래 Python 함수는 빈 리스트가 입력될 때 ZeroDivisionError가 발생합니다. 빈 리스트 처리 로직을 추가해서 수정해줘.\n\ndef calculate_average(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total / len(numbers)",
+      "sample_bad_prompt": "이 코드 고쳐줘.",
+      "explanation": "버그 수정 요청 프롬프트는 실제 코드를 포함하고, 구체적인 버그 증상(ZeroDivisionError)과 원인(빈 리스트)을 명시해야 합니다."
+    },
+    {
+      "id": "DEV-003",
+      "domain": "development",
+      "difficulty": "medium",
+      "task": "아래 JavaScript 코드를 리팩토링해달라는 프롬프트를 작성하세요. 중복된 조건문을 제거하고 가독성을 높이는 방향으로 요청해야 합니다.\n\n```javascript\nfunction getDiscount(userType) {\n  if (userType === 'vip') return 0.3;\n  if (userType === 'premium') return 0.2;\n  if (userType === 'basic') return 0.1;\n  if (userType === 'vip') return 0.3; // 중복\n  return 0;\n}\n```",
+      "context": "당신은 AI에게 코드 리팩토링을 요청하려 합니다. 중복 코드 제거와 가독성 향상이 목표입니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "code_included",
+            "desc": "프롬프트에 리팩토링할 코드가 포함되어 있는가",
+            "points": 25,
+            "keywords": ["getdiscount", "usertype", "function", "vip", "premium"]
+          },
+          {
+            "key": "refactoring_goal",
+            "desc": "리팩토링 목표(중복 제거, 가독성)가 명시되어 있는가",
+            "points": 35,
+            "keywords": ["리팩토링", "refactor", "중복", "duplicate", "가독성", "readable", "clean"]
+          },
+          {
+            "key": "language_specified",
+            "desc": "JavaScript가 명시되어 있는가",
+            "points": 20,
+            "keywords": ["javascript", "자바스크립트", "js"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (25자 이상)",
+            "points": 20,
+            "min_length": 25
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "아래 JavaScript 코드에서 중복된 조건문을 제거하고, switch문이나 객체 맵핑을 사용해 가독성 있게 리팩토링해줘.\n\nfunction getDiscount(userType) {\n  if (userType === 'vip') return 0.3;\n  if (userType === 'premium') return 0.2;\n  if (userType === 'basic') return 0.1;\n  if (userType === 'vip') return 0.3;\n  return 0;\n}",
+      "sample_bad_prompt": "코드 정리해줘.",
+      "explanation": "리팩토링 요청은 대상 언어, 실제 코드, 그리고 원하는 개선 방향(중복 제거, 가독성 향상)을 구체적으로 명시해야 합니다."
+    },
+    {
+      "id": "DEV-004",
+      "domain": "development",
+      "difficulty": "easy",
+      "task": "Python requests 라이브러리를 사용해 REST API에 POST 요청을 보내고 JSON 응답을 파싱하는 방법을 설명해달라는 프롬프트를 작성하세요.",
+      "context": "당신은 AI에게 Python requests 라이브러리 사용법을 물어보려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "library_specified",
+            "desc": "requests 라이브러리가 명시되어 있는가",
+            "points": 30,
+            "keywords": ["requests", "request"]
+          },
+          {
+            "key": "http_method",
+            "desc": "POST 요청임이 명시되어 있는가",
+            "points": 25,
+            "keywords": ["post", "포스트"]
+          },
+          {
+            "key": "json_parsing",
+            "desc": "JSON 응답 파싱이 언급되어 있는가",
+            "points": 25,
+            "keywords": ["json", "파싱", "parsing", "응답"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (20자 이상)",
+            "points": 20,
+            "min_length": 20
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "Python requests 라이브러리로 REST API에 POST 요청을 보내고 JSON 응답을 파싱하는 방법을 예제 코드와 함께 설명해줘.",
+      "sample_bad_prompt": "API 요청 방법 알려줘.",
+      "explanation": "API 사용법 질문은 라이브러리명(requests), HTTP 메서드(POST), 원하는 동작(JSON 파싱)을 모두 명시해야 정확한 답을 얻을 수 있습니다."
+    },
+    {
+      "id": "DEV-005",
+      "domain": "development",
+      "difficulty": "hard",
+      "task": "한국 전화번호 형식(010-XXXX-XXXX 또는 02-XXXX-XXXX)을 검증하는 정규표현식을 만들어달라는 프롬프트를 작성하세요.",
+      "context": "당신은 AI에게 한국 전화번호 유효성 검사용 정규표현식 작성을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "format_specified",
+            "desc": "010-XXXX-XXXX 또는 02-XXXX-XXXX 형식이 명시되어 있는가",
+            "points": 35,
+            "keywords": ["010", "02", "xxxx", "형식", "format"]
+          },
+          {
+            "key": "regex_requested",
+            "desc": "정규표현식 또는 regex가 명시되어 있는가",
+            "points": 30,
+            "keywords": ["정규표현식", "regex", "regexp", "regular expression", "정규식"]
+          },
+          {
+            "key": "purpose_clear",
+            "desc": "전화번호 검증/유효성 검사 목적이 명시되어 있는가",
+            "points": 20,
+            "keywords": ["검증", "유효성", "validation", "validate", "전화번호"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (25자 이상)",
+            "points": 15,
+            "min_length": 25
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "한국 전화번호 형식(010-XXXX-XXXX, 02-XXXX-XXXX)을 검증하는 정규표현식(regex)을 작성해줘. 두 형식 모두 매칭되어야 해.",
+      "sample_bad_prompt": "전화번호 정규식 만들어줘.",
+      "explanation": "정규표현식 요청은 매칭해야 할 정확한 형식(010-XXXX-XXXX, 02-XXXX-XXXX)을 예시로 제시하고, 용도(검증)를 명확히 해야 합니다."
+    },
+    {
+      "id": "DEV-006",
+      "domain": "development",
+      "difficulty": "medium",
+      "task": "퀵소트(Quick Sort) 알고리즘의 동작 원리를 단계별로 설명해달라는 프롬프트를 작성하세요. 피벗 선택부터 파티셔닝까지 포함해야 합니다.",
+      "context": "당신은 AI에게 퀵소트 알고리즘을 단계별로 설명해달라고 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "algorithm_named",
+            "desc": "퀵소트(Quick Sort)가 명시되어 있는가",
+            "points": 30,
+            "keywords": ["퀵소트", "퀵 소트", "quick sort", "quicksort"]
+          },
+          {
+            "key": "step_by_step",
+            "desc": "단계별 설명을 요청했는가",
+            "points": 25,
+            "keywords": ["단계별", "step by step", "step-by-step", "순서", "과정"]
+          },
+          {
+            "key": "pivot_mentioned",
+            "desc": "피벗(pivot) 또는 파티셔닝이 언급되어 있는가",
+            "points": 25,
+            "keywords": ["피벗", "pivot", "파티션", "partition", "partitioning"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (20자 이상)",
+            "points": 20,
+            "min_length": 20
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "퀵소트(Quick Sort) 알고리즘의 동작 원리를 단계별로 설명해줘. 피벗 선택, 파티셔닝, 재귀 호출 과정을 포함하고, 예시 배열 [5,3,8,1,9]로 시연해줘.",
+      "sample_bad_prompt": "퀵소트 설명해줘.",
+      "explanation": "알고리즘 설명 요청은 알고리즘 이름, 설명 형식(단계별), 핵심 개념(피벗, 파티셔닝)을 포함하고 예시를 요청하면 더 좋습니다."
+    },
+    {
+      "id": "DEV-007",
+      "domain": "development",
+      "difficulty": "hard",
+      "task": "아래 TypeScript 코드를 리뷰해달라는 프롬프트를 작성하세요. 타입 안전성, 에러 처리, 성능 측면에서 검토를 요청해야 합니다.\n\n```typescript\nasync function fetchUserData(userId: any) {\n  const response = await fetch(`/api/users/${userId}`);\n  const data = response.json();\n  return data;\n}\n```",
+      "context": "당신은 AI에게 TypeScript 코드 리뷰를 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "code_included",
+            "desc": "프롬프트에 리뷰할 TypeScript 코드가 포함되어 있는가",
+            "points": 25,
+            "keywords": ["fetchuserdata", "userid", "async", "fetch", "typescript"]
+          },
+          {
+            "key": "review_criteria",
+            "desc": "검토 기준(타입 안전성, 에러 처리, 성능 중 2개 이상)이 명시되어 있는가",
+            "points": 35,
+            "keywords": ["타입", "type", "에러", "error", "성능", "performance", "안전", "처리"]
+          },
+          {
+            "key": "language_specified",
+            "desc": "TypeScript가 명시되어 있는가",
+            "points": 20,
+            "keywords": ["typescript", "타입스크립트", "ts"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (25자 이상)",
+            "points": 20,
+            "min_length": 25
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "아래 TypeScript 코드를 타입 안전성, 에러 처리, await 누락 등의 측면에서 코드 리뷰해줘. 문제점과 개선 방법을 구체적으로 알려줘.\n\nasync function fetchUserData(userId: any) {\n  const response = await fetch(`/api/users/${userId}`);\n  const data = response.json();\n  return data;\n}",
+      "sample_bad_prompt": "이 코드 리뷰해줘.",
+      "explanation": "코드 리뷰 요청은 실제 코드를 포함하고, 어떤 측면(타입 안전성, 에러 처리, 성능)을 검토해야 하는지 구체적으로 명시해야 합니다."
+    },
+    {
+      "id": "DEV-008",
+      "domain": "development",
+      "difficulty": "medium",
+      "task": "Python으로 작성된 `add(a, b)` 함수에 대한 단위 테스트 코드를 pytest를 사용해 작성해달라는 프롬프트를 작성하세요. 정상 케이스, 경계값, 음수 케이스를 포함해야 합니다.",
+      "context": "당신은 AI에게 Python 단위 테스트 코드 작성을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "framework_specified",
+            "desc": "pytest가 명시되어 있는가",
+            "points": 30,
+            "keywords": ["pytest", "py.test", "파이테스트"]
+          },
+          {
+            "key": "function_named",
+            "desc": "테스트할 함수(add)가 명시되어 있는가",
+            "points": 25,
+            "keywords": ["add", "add(", "더하기", "덧셈"]
+          },
+          {
+            "key": "test_cases",
+            "desc": "테스트 케이스 유형(정상, 경계값, 음수 중 2개 이상)이 언급되어 있는가",
+            "points": 30,
+            "keywords": ["경계값", "boundary", "음수", "negative", "정상", "edge case", "엣지"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (25자 이상)",
+            "points": 15,
+            "min_length": 25
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "Python add(a, b) 함수에 대한 pytest 단위 테스트를 작성해줘. 정상 케이스(양수 덧셈), 경계값(0 포함), 음수 케이스를 포함한 최소 5개 테스트를 작성해줘.",
+      "sample_bad_prompt": "테스트 코드 짜줘.",
+      "explanation": "테스트 코드 요청은 테스트 프레임워크(pytest), 대상 함수(add), 다루어야 할 테스트 케이스 유형을 명확히 지정해야 합니다."
+    },
+    {
+      "id": "DEV-009",
+      "domain": "development",
+      "difficulty": "hard",
+      "task": "MySQL 데이터베이스에서 최근 30일간 주문 금액이 100만원 이상인 고객의 이름, 이메일, 총 주문 금액을 조회하는 SQL 쿼리를 작성해달라는 프롬프트를 작성하세요.",
+      "context": "당신은 AI에게 MySQL SQL 쿼리 작성을 요청하려 합니다. orders 테이블과 customers 테이블이 존재합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "db_specified",
+            "desc": "MySQL이 명시되어 있는가",
+            "points": 20,
+            "keywords": ["mysql", "마이에스큐엘", "마이sql"]
+          },
+          {
+            "key": "conditions_clear",
+            "desc": "조회 조건(30일, 100만원 이상)이 명시되어 있는가",
+            "points": 30,
+            "keywords": ["30일", "100만", "1000000", "30 days", "1,000,000"]
+          },
+          {
+            "key": "columns_specified",
+            "desc": "조회할 컬럼(이름, 이메일, 주문 금액)이 명시되어 있는가",
+            "points": 30,
+            "keywords": ["이름", "이메일", "email", "주문 금액", "금액", "name"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (30자 이상)",
+            "points": 20,
+            "min_length": 30
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "MySQL에서 orders 테이블과 customers 테이블을 JOIN하여, 최근 30일 내 주문이 있고 총 주문 금액이 100만원(1,000,000원) 이상인 고객의 이름, 이메일, 총 주문 금액을 조회하는 SQL 쿼리를 작성해줘.",
+      "sample_bad_prompt": "주문 많이 한 고객 조회하는 쿼리 짜줘.",
+      "explanation": "SQL 쿼리 요청은 데이터베이스 종류, 관련 테이블, 정확한 조건(기간, 금액 기준), 조회할 컬럼을 모두 명시해야 합니다."
+    },
+    {
+      "id": "DEV-010",
+      "domain": "development",
+      "difficulty": "medium",
+      "task": "아래 Python 에러 메시지의 원인과 해결 방법을 설명해달라는 프롬프트를 작성하세요.\n\n```\nTraceback (most recent call last):\n  File \"app.py\", line 15, in <module>\n    result = data['user']['profile']['age']\nKeyError: 'profile'\n```",
+      "context": "당신은 AI에게 Python 에러 메시지 해석을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "error_included",
+            "desc": "프롬프트에 에러 메시지 또는 traceback이 포함되어 있는가",
+            "points": 35,
+            "keywords": ["keyerror", "traceback", "profile", "app.py", "KeyError"]
+          },
+          {
+            "key": "explanation_requested",
+            "desc": "원인 설명과 해결 방법을 함께 요청했는가",
+            "points": 30,
+            "keywords": ["원인", "해결", "fix", "cause", "why", "이유", "방법"]
+          },
+          {
+            "key": "context_provided",
+            "desc": "Python 컨텍스트가 명시되어 있는가",
+            "points": 20,
+            "keywords": ["python", "파이썬", "keyerror"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (20자 이상)",
+            "points": 15,
+            "min_length": 20
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "아래 Python 코드에서 KeyError: 'profile' 에러가 발생합니다. 이 에러의 원인이 무엇인지, 그리고 중첩 딕셔너리에서 안전하게 값을 접근하는 해결 방법을 알려줘.\n\nTraceback (most recent call last):\n  File \"app.py\", line 15, in <module>\n    result = data['user']['profile']['age']\nKeyError: 'profile'",
+      "sample_bad_prompt": "에러 왜 나는 거야?",
+      "explanation": "에러 해석 요청은 실제 에러 메시지(traceback 포함)를 첨부하고, 원인 분석과 해결 방법 모두를 요청해야 합니다."
+    },
+    {
+      "id": "MKT-001",
+      "domain": "marketing",
+      "difficulty": "easy",
+      "task": "친환경 텀블러 신제품 '에코플로우 500ml'의 제품 소개 카피를 작성해달라는 프롬프트를 작성하세요. 제품의 핵심 특징(보온 24시간, BPA-free, 재활용 소재)을 포함해야 합니다.",
+      "context": "당신은 AI에게 친환경 텀블러 신제품의 마케팅 카피 작성을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "product_named",
+            "desc": "제품명(에코플로우) 또는 제품 유형(텀블러)이 명시되어 있는가",
+            "points": 25,
+            "keywords": ["에코플로우", "텀블러", "tumbler", "ecoflo"]
+          },
+          {
+            "key": "features_included",
+            "desc": "핵심 특징(보온, BPA-free, 친환경/재활용) 중 2개 이상이 포함되어 있는가",
+            "points": 35,
+            "keywords": ["보온", "bpa", "친환경", "재활용", "eco", "24시간"]
+          },
+          {
+            "key": "copy_type",
+            "desc": "카피 또는 광고 문구 작성을 명시적으로 요청했는가",
+            "points": 20,
+            "keywords": ["카피", "copy", "문구", "광고", "소개"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (20자 이상)",
+            "points": 20,
+            "min_length": 20
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "친환경 텀블러 '에코플로우 500ml'의 제품 소개 카피를 작성해줘. 보온 24시간 유지, BPA-free 소재, 재활용 플라스틱으로 만든 친환경 특징을 강조해서 3줄 이내로 작성해줘.",
+      "sample_bad_prompt": "텀블러 소개글 써줘.",
+      "explanation": "제품 카피 요청은 제품명, 핵심 특징(3가지), 분량이나 형식 지침을 포함해야 목적에 맞는 결과물을 얻을 수 있습니다."
+    },
+    {
+      "id": "MKT-002",
+      "domain": "marketing",
+      "difficulty": "medium",
+      "task": "온라인 영어 학습 앱 '스피크업'의 신규 가입 유도 이메일 제목을 A/B 테스트용으로 2개 버전 작성해달라는 프롬프트를 작성하세요. A안은 호기심 유발, B안은 혜택 강조 방식으로 요청해야 합니다.",
+      "context": "당신은 AI에게 이메일 마케팅 A/B 테스트용 제목 2가지를 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "product_named",
+            "desc": "앱 이름(스피크업) 또는 영어 학습 앱임이 명시되어 있는가",
+            "points": 20,
+            "keywords": ["스피크업", "speakup", "영어", "english", "학습"]
+          },
+          {
+            "key": "ab_test",
+            "desc": "A/B 테스트 또는 2가지 버전임이 명시되어 있는가",
+            "points": 30,
+            "keywords": ["a/b", "ab 테스트", "a/b테스트", "2가지", "두 가지", "2개", "두개", "버전"]
+          },
+          {
+            "key": "variation_types",
+            "desc": "각 버전의 전략(호기심 유발, 혜택 강조)이 명시되어 있는가",
+            "points": 30,
+            "keywords": ["호기심", "혜택", "benefit", "curiosity", "강조"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (25자 이상)",
+            "points": 20,
+            "min_length": 25
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "영어 학습 앱 '스피크업'의 신규 가입 유도 이메일 제목을 A/B 테스트용으로 2가지 작성해줘. A안은 호기심을 유발하는 방식으로, B안은 구체적인 혜택(무료 30일 체험)을 강조하는 방식으로 써줘.",
+      "sample_bad_prompt": "이메일 제목 2개 써줘.",
+      "explanation": "A/B 테스트 이메일 요청은 제품/서비스명, 테스트 목적(가입 유도), 각 버전의 차별화 전략을 명확히 지정해야 합니다."
+    },
+    {
+      "id": "MKT-003",
+      "domain": "marketing",
+      "difficulty": "medium",
+      "task": "프리미엄 필라테스 스튜디오 광고 문구를 30대 직장인 여성 페르소나를 위해 작성해달라는 프롬프트를 작성하세요. 페르소나의 특성(바쁜 일상, 건강 관심, 자기계발 욕구)을 반영해야 합니다.",
+      "context": "당신은 AI에게 특정 타겟 페르소나에 맞는 광고 문구를 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "product_specified",
+            "desc": "필라테스 스튜디오 또는 운동/피트니스 서비스임이 명시되어 있는가",
+            "points": 25,
+            "keywords": ["필라테스", "pilates", "스튜디오", "피트니스", "운동"]
+          },
+          {
+            "key": "persona_defined",
+            "desc": "30대 직장인 여성 페르소나가 명시되어 있는가",
+            "points": 30,
+            "keywords": ["30대", "직장인", "여성", "페르소나", "타겟", "persona"]
+          },
+          {
+            "key": "persona_traits",
+            "desc": "페르소나 특성(바쁜 일상, 건강, 자기계발) 중 2개 이상이 언급되어 있는가",
+            "points": 25,
+            "keywords": ["바쁜", "건강", "자기계발", "스트레스", "라이프스타일", "wellness"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (25자 이상)",
+            "points": 20,
+            "min_length": 25
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "프리미엄 필라테스 스튜디오 광고 문구를 작성해줘. 타겟은 30대 직장인 여성으로, 바쁜 일상 속 건강 관리와 자기계발에 관심이 많고 퇴근 후 시간을 의미있게 쓰고 싶어 하는 페르소나야. 이 페르소나의 감성에 맞는 2-3문장짜리 광고 카피를 써줘.",
+      "sample_bad_prompt": "필라테스 광고 문구 써줘.",
+      "explanation": "페르소나 기반 광고 요청은 타겟 페르소나의 나이·직업·성별과 함께 그들의 니즈와 라이프스타일을 구체적으로 설명해야 합니다."
+    },
+    {
+      "id": "MKT-004",
+      "domain": "marketing",
+      "difficulty": "easy",
+      "task": "국내산 유기농 차(茶) 브랜드 '다향원'의 인스타그램 포스팅에 사용할 해시태그 15개를 요청하는 프롬프트를 작성하세요. 국내 인기 해시태그와 브랜드 관련 해시태그를 혼합해달라고 요청해야 합니다.",
+      "context": "당신은 AI에게 인스타그램 마케팅용 해시태그 생성을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "brand_and_product",
+            "desc": "브랜드명(다향원) 또는 제품(유기농 차)이 명시되어 있는가",
+            "points": 25,
+            "keywords": ["다향원", "유기농", "차", "tea", "organic"]
+          },
+          {
+            "key": "platform_specified",
+            "desc": "인스타그램이 명시되어 있는가",
+            "points": 25,
+            "keywords": ["인스타그램", "instagram", "인스타", "sns"]
+          },
+          {
+            "key": "quantity_specified",
+            "desc": "해시태그 개수(15개)가 명시되어 있는가",
+            "points": 25,
+            "keywords": ["15개", "15 개", "열다섯"]
+          },
+          {
+            "key": "mix_requested",
+            "desc": "인기 해시태그와 브랜드 해시태그 혼합을 요청했는가",
+            "points": 25,
+            "keywords": ["인기", "브랜드", "혼합", "mix", "조합", "popular"]
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "국내산 유기농 차 브랜드 '다향원' 인스타그램 포스팅용 해시태그 15개를 작성해줘. 인기 있는 차/건강 관련 해시태그 10개와 브랜드 특성(유기농, 국내산, 전통차)을 살린 해시태그 5개를 혼합해줘.",
+      "sample_bad_prompt": "해시태그 만들어줘.",
+      "explanation": "해시태그 요청은 브랜드/제품명, 플랫폼(인스타그램), 개수, 그리고 인기 태그와 브랜드 태그의 혼합 비율을 지정하면 최적의 결과를 얻을 수 있습니다."
+    },
+    {
+      "id": "MKT-005",
+      "domain": "marketing",
+      "difficulty": "hard",
+      "task": "클라우드 화상회의 솔루션 '넥스밋'의 경쟁사(Zoom) 대비 차별점을 강조하는 마케팅 카피를 요청하는 프롬프트를 작성하세요. 넥스밋의 강점(AI 자동 회의록, 보안 강화, 국내 서버)을 포함해야 합니다.",
+      "context": "당신은 AI에게 경쟁사 대비 차별점을 강조하는 마케팅 카피 작성을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "product_vs_competitor",
+            "desc": "자사 제품(넥스밋)과 경쟁사(Zoom)가 모두 언급되어 있는가",
+            "points": 30,
+            "keywords": ["넥스밋", "zoom", "줌", "경쟁", "대비", "비교"]
+          },
+          {
+            "key": "differentiators",
+            "desc": "차별화 포인트(AI 회의록, 보안, 국내 서버) 중 2개 이상이 명시되어 있는가",
+            "points": 35,
+            "keywords": ["ai", "회의록", "보안", "국내", "서버", "자동"]
+          },
+          {
+            "key": "copy_purpose",
+            "desc": "마케팅 카피 또는 광고 문구 작성을 요청했는가",
+            "points": 20,
+            "keywords": ["카피", "광고", "문구", "마케팅", "슬로건"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (30자 이상)",
+            "points": 15,
+            "min_length": 30
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "화상회의 솔루션 '넥스밋'이 Zoom과 비교해서 어떻게 더 뛰어난지 강조하는 마케팅 카피를 작성해줘. 넥스밋의 핵심 강점인 AI 자동 회의록, 강화된 보안, 국내 서버 기반 데이터 보호를 Zoom과 비교해 부각시켜줘. 2-3문장으로 작성해줘.",
+      "sample_bad_prompt": "넥스밋 광고 카피 써줘.",
+      "explanation": "경쟁사 비교 카피는 자사 제품명, 경쟁사명, 구체적인 차별화 포인트를 명시하고, 어떤 측면에서 우월한지 방향을 제시해야 합니다."
+    },
+    {
+      "id": "MKT-006",
+      "domain": "marketing",
+      "difficulty": "easy",
+      "task": "SaaS 프로젝트 관리 툴 '태스크플로우'의 14일 무료 체험 가입 버튼에 사용할 CTA(Call-to-Action) 문구 5가지를 요청하는 프롬프트를 작성하세요.",
+      "context": "당신은 AI에게 웹사이트 CTA 버튼 문구를 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "product_and_offer",
+            "desc": "제품명(태스크플로우) 또는 무료 체험 혜택이 명시되어 있는가",
+            "points": 25,
+            "keywords": ["태스크플로우", "무료", "free", "체험", "14일"]
+          },
+          {
+            "key": "cta_specified",
+            "desc": "CTA 또는 버튼 문구임이 명시되어 있는가",
+            "points": 30,
+            "keywords": ["cta", "버튼", "call to action", "클릭", "문구"]
+          },
+          {
+            "key": "quantity",
+            "desc": "5가지 또는 여러 개를 요청했는가",
+            "points": 25,
+            "keywords": ["5가지", "5개", "다섯", "여러", "multiple", "5 가지"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (20자 이상)",
+            "points": 20,
+            "min_length": 20
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "프로젝트 관리 SaaS '태스크플로우'의 랜딩페이지에서 14일 무료 체험 가입을 유도하는 CTA 버튼 문구를 5가지 작성해줘. 클릭률을 높이는 긴박감이나 혜택을 강조하는 방식으로 써줘.",
+      "sample_bad_prompt": "버튼 문구 써줘.",
+      "explanation": "CTA 요청은 제품명, 구체적인 혜택(14일 무료), 원하는 사용자 행동, 그리고 몇 가지 옵션이 필요한지를 명시해야 합니다."
+    },
+    {
+      "id": "MKT-007",
+      "domain": "marketing",
+      "difficulty": "medium",
+      "task": "아래 고객 후기들을 요약해달라는 프롬프트를 작성하세요. 긍정적 포인트와 개선 요청 사항을 구분해서 요약하고, 마케팅에 활용 가능한 인사이트를 추출해달라고 요청해야 합니다.\n\n후기1: \"배송이 빠르고 포장이 깔끔해서 좋았어요.\"\n후기2: \"제품 품질은 좋은데 가격이 조금 비싸요.\"\n후기3: \"고객센터 응대가 친절했습니다.\"\n후기4: \"재구매하고 싶은데 색상이 다양했으면 좋겠어요.\"",
+      "context": "당신은 AI에게 고객 후기 데이터를 분석하고 요약해달라고 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "reviews_included",
+            "desc": "프롬프트에 요약할 고객 후기가 포함되어 있는가",
+            "points": 30,
+            "keywords": ["후기", "배송", "포장", "재구매", "색상"]
+          },
+          {
+            "key": "categorization",
+            "desc": "긍정/부정 또는 개선 요청 사항 구분을 요청했는가",
+            "points": 30,
+            "keywords": ["긍정", "부정", "개선", "positive", "negative", "구분", "분류"]
+          },
+          {
+            "key": "marketing_insight",
+            "desc": "마케팅 활용 인사이트 추출을 요청했는가",
+            "points": 25,
+            "keywords": ["인사이트", "insight", "마케팅", "활용", "시사점"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (25자 이상)",
+            "points": 15,
+            "min_length": 25
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "아래 고객 후기 4개를 분석해줘. 긍정적인 포인트와 개선 요청 사항을 각각 항목으로 정리하고, 마케팅에 활용할 수 있는 핵심 인사이트 2-3가지를 뽑아줘.\n\n후기1: 배송이 빠르고 포장이 깔끔해서 좋았어요.\n후기2: 제품 품질은 좋은데 가격이 조금 비싸요.\n후기3: 고객센터 응대가 친절했습니다.\n후기4: 재구매하고 싶은데 색상이 다양했으면 좋겠어요.",
+      "sample_bad_prompt": "후기 요약해줘.",
+      "explanation": "후기 요약 요청은 실제 후기 데이터를 포함하고, 긍정/부정 구분, 마케팅 인사이트 추출 등 원하는 분석 방향을 명시해야 합니다."
+    },
+    {
+      "id": "MKT-008",
+      "domain": "marketing",
+      "difficulty": "medium",
+      "task": "B2B SaaS HR 솔루션 '피플테크'의 랜딩페이지 메인 헤드라인을 5개 작성해달라는 프롬프트를 작성하세요. HR 담당자를 타겟으로, 업무 효율화와 비용 절감 가치를 담아야 합니다.",
+      "context": "당신은 AI에게 B2B SaaS 랜딩페이지 헤드라인 작성을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "product_context",
+            "desc": "HR 솔루션 또는 피플테크가 명시되어 있는가",
+            "points": 20,
+            "keywords": ["hr", "피플테크", "인사", "솔루션", "saas"]
+          },
+          {
+            "key": "target_audience",
+            "desc": "타겟(HR 담당자, B2B)이 명시되어 있는가",
+            "points": 25,
+            "keywords": ["hr 담당자", "b2b", "기업", "담당자", "인사담당"]
+          },
+          {
+            "key": "value_proposition",
+            "desc": "가치 제안(효율화, 비용 절감) 중 하나 이상이 포함되어 있는가",
+            "points": 30,
+            "keywords": ["효율", "비용", "절감", "생산성", "productivity", "cost"]
+          },
+          {
+            "key": "quantity_and_type",
+            "desc": "5개 헤드라인을 요청했는가",
+            "points": 25,
+            "keywords": ["5개", "5가지", "다섯", "헤드라인", "headline"]
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "B2B HR SaaS '피플테크'의 랜딩페이지 메인 헤드라인을 5개 작성해줘. 타겟은 중소기업 HR 담당자이고, 반복 업무 자동화로 인한 효율 향상과 채용 비용 절감이라는 핵심 가치를 담아야 해. 임팩트 있는 문장으로 써줘.",
+      "sample_bad_prompt": "랜딩 페이지 제목 써줘.",
+      "explanation": "랜딩페이지 헤드라인 요청은 제품명, B2B/B2C 여부, 타겟 고객, 핵심 가치 제안, 원하는 개수를 명시해야 합니다."
+    },
+    {
+      "id": "MKT-009",
+      "domain": "marketing",
+      "difficulty": "hard",
+      "task": "비건 뷰티 브랜드 '그린글로우'를 위한 블로그 포스트 아웃라인을 요청하는 프롬프트를 작성하세요. 주제는 '2024년 비건 스킨케어 루틴 완벽 가이드'이며, SEO를 고려한 H2/H3 구조로 작성을 요청해야 합니다.",
+      "context": "당신은 AI에게 콘텐츠 마케팅용 블로그 포스트 아웃라인 작성을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "topic_specified",
+            "desc": "블로그 주제(비건 스킨케어 루틴)가 명시되어 있는가",
+            "points": 25,
+            "keywords": ["비건", "스킨케어", "루틴", "skincare", "vegan"]
+          },
+          {
+            "key": "seo_requested",
+            "desc": "SEO 또는 검색 최적화가 언급되어 있는가",
+            "points": 25,
+            "keywords": ["seo", "검색", "최적화", "search engine", "키워드"]
+          },
+          {
+            "key": "structure_specified",
+            "desc": "H2/H3 구조 또는 아웃라인 형식이 명시되어 있는가",
+            "points": 30,
+            "keywords": ["h2", "h3", "아웃라인", "outline", "구조", "목차"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (25자 이상)",
+            "points": 20,
+            "min_length": 25
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "비건 뷰티 브랜드 '그린글로우' 블로그에 올릴 '2024년 비건 스킨케어 루틴 완벽 가이드' 포스트 아웃라인을 작성해줘. SEO를 고려해 H2 4개, 각 H2 아래 H3 2-3개 구조로 잡아줘. 주요 키워드는 '비건 스킨케어', '비건 루틴', '친환경 화장품'이야.",
+      "sample_bad_prompt": "블로그 글 목차 짜줘.",
+      "explanation": "블로그 아웃라인 요청은 주제, 타겟 브랜드/독자, SEO 고려 여부, 원하는 헤딩 구조(H2/H3)와 개수를 명시해야 합니다."
+    },
+    {
+      "id": "MKT-010",
+      "domain": "marketing",
+      "difficulty": "hard",
+      "task": "전자제품 쇼핑몰에서 주문한 노트북이 3일째 배송 지연되고 있다는 고객 불만에 응대하는 스크립트를 작성해달라는 프롬프트를 작성하세요. 사과, 원인 설명, 해결책 제시, 보상 안내 순서로 구성을 요청해야 합니다.",
+      "context": "당신은 AI에게 고객 불만 응대 스크립트 작성을 요청하려 합니다.",
+      "scoring_criteria": {
+        "type": "llm_judge",
+        "rubric": [
+          {
+            "key": "situation_described",
+            "desc": "배송 지연 상황(3일, 노트북)이 명시되어 있는가",
+            "points": 25,
+            "keywords": ["배송 지연", "3일", "노트북", "지연"]
+          },
+          {
+            "key": "script_structure",
+            "desc": "응대 스크립트의 구성(사과, 원인, 해결책, 보상) 중 2개 이상이 포함되어 있는가",
+            "points": 35,
+            "keywords": ["사과", "원인", "해결", "보상", "안내", "compensation", "apology"]
+          },
+          {
+            "key": "format_requested",
+            "desc": "스크립트 형식으로 작성을 요청했는가",
+            "points": 20,
+            "keywords": ["스크립트", "script", "응대", "대화", "멘트"]
+          },
+          {
+            "key": "clarity",
+            "desc": "프롬프트가 명확하고 구체적인가 (30자 이상)",
+            "points": 20,
+            "min_length": 30
+          }
+        ],
+        "pass_threshold": 70
+      },
+      "sample_good_prompt": "전자제품 쇼핑몰 고객센터 상담사를 위한 불만 응대 스크립트를 작성해줘. 상황: 고객이 노트북을 주문했는데 3일째 배송이 안 됐다고 항의함. 스크립트는 ① 진심 어린 사과 → ② 배송 지연 원인 설명 → ③ 구체적인 해결책 제시 → ④ 보상(할인 쿠폰 등) 안내 순서로 작성해줘.",
+      "sample_bad_prompt": "배송 지연 불만 고객 응대 방법 알려줘.",
+      "explanation": "고객 응대 스크립트 요청은 구체적인 상황(상품, 지연 일수), 원하는 스크립트 구성 순서(사과→원인→해결→보상)를 명확히 지정해야 합니다."
+    }
+  ]
+}

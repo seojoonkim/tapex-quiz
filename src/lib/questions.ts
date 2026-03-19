@@ -1,4 +1,4 @@
-import questionsData from '../../../questions.json'
+import questionsData from './questions.json'
 
 export interface RubricItem {
   key: string
