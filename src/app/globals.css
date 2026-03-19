@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tapex-navy: #1a1f36;
+  --tapex-gold: #f5c518;
+}
+
+body {
+  background-color: var(--tapex-navy);
+  color: #e2e8f0;
+}
